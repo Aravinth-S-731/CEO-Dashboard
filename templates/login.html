@@ -29,7 +29,7 @@
 
         <div class="login-container">
             <h1>Login</h1>
-            <form>
+            <form action="{{ url_for('login')}}" method="post">
                 <div class="group">
                     <label for="username">
                         <i class="fa-solid fa-user"></i>
@@ -44,6 +44,7 @@
                     </label>
                     <input type="password" id="password" name="password" placeholder="Please Enter Password" required>
                 </div>
+                <div class="msg">{{ msg }}</div>
                 <div class="group-button">
                     <input type="submit" value="Login" class="submit">
                 </div>
