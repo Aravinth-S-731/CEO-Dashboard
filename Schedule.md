@@ -2,8 +2,8 @@
 
 - [ ] Day - 1 [04/10/2023]
     #### User Authentication adn Authorization.
-  - [ ] Morning - Database Schema for User Authorization.
-  - [ ] Afternoon = Setup Flask Environment and configure database with Flask application.
+  - [x] Morning - Database Schema for User Authorization.
+  - [x] Afternoon = Setup Flask Environment and configure database with Flask application.
   - [ ] Developing user Registration and login functionalities.
 
 - [ ] Day - 2 [05/10/2023]

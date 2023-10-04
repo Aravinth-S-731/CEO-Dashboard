@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+:root{
+    --primary:           #007bff;
+    --secondary:         #00cccc;
+    --on-primary:        #ffffff;
+    --on-secondary:      #151515;
+    --background:        #ffffff;
+    --background-variant:#151515;
+    --surface:           #dddddd;
+    --text-color:        #000000;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0.8)),url(/static/images/login_background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ----- Navigation Bar ----- */
+.navigation{
+    display: flex;
+    float: left;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 5em;
+    /* background-color: var(--background-variant); */
+    color: var(--on-primary);
+}
+.navigation h2{
+    padding: 10px;
+    margin: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.navigation h2 a{
+    text-decoration: none;
+    color: var(--on-primary);
+    transition: 0.5s;
+}
+.navigation h2 a::after{
+    content: '';
+    display: block;
+    margin: 3px auto;
+    width: 0%;
+    height: 1px;
+    background: var(--primary);
+    transition: 0.5s;
+}
+.navigation h2 a:hover::after{
+    width: 100%;
+}
+.navigation ul{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+    padding: 20px;
+}
+.navigation ul a{
+    display: inline-block;
+    position: relative;
+    color: var(--on-primary);
+    text-decoration: none;
+    list-style: none;
+    letter-spacing: 1px;
+}
+.navigation ul a::after{
+    content: '';
+    display: block;
+    margin: 3px auto;
+    width: 0%;
+    height: 1px;
+    background: var(--primary);
+    transition: 1s;
+}
+.navigation a:hover::after{
+    width: 100%;
+}
+.navigation i{
+    padding: 0 3px;
+}
+
+/* ----- Login Section ----- */
+.login-section{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: var(--on-primary);
+    padding: 30px 50px;
+    background-color: var(--primary),0.7;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 1) 0px 5px 9px, rgba(0, 0, 0, 1) 0px 10px 10px -6px, rgba(0, 0, 0, 1) 0px -6px 0px inset;
+}
+.login-container h1{
+    font-size: 32px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+.login-container .group{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px 0;
+}
+.login-container .group label{
+    margin: 5px;
+}
+.login-container .group input{
+    width: 100%;
+    padding: 5px;
+    color: var(--on-primary);
+    background-color: transparent;
+    border: 1px solid var(--on-primary);
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.login-container .group-button{
+    text-align: center;
+}
+.submit{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    align-items: center;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    color: var(--on-primary);
+    background-color: var(--primary);
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.submit:hover{
+    background-color: transparent;
+    color: var(--primary);
+    transition: 0.5s;
+}
+.login-container p{
+    margin-top: 20px;
+}
+.login-container p a{
+    text-decoration: none;
+    color: var(--secondary);
+    transition: 0.5s;
+}
+.login-container p a:hover{
+    text-decoration: underline;
+}

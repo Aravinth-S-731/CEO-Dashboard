@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO - Login</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navigation">
+        <h2 class="brand-text"><a href="{{ url_for('login')}}">CEO-Dashboard</a></h2>
+        <ul>
+            <a href="{{ url_for('login')}}">
+                <li><i class="fa-solid fa-user-plus"></i>Register</li>
+            </a>
+            <a href="{{ url_for('login')}}">
+                <li><i class="fa-solid fa-right-to-bracket"></i>Login</li>
+            </a>
+        </ul>
+    </nav>
+
+    <!-- Login Page -->
+    <section class="login-section">
+
+        <div class="login-container">
+            <h1>Login</h1>
+            <form>
+                <div class="group">
+                    <label for="username">
+                        <i class="fa-solid fa-user"></i>
+                        Username
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Please Enter Username" required>
+                </div>
+                <div class="group">
+                    <label for="password">
+                        <i class="fa-solid fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Please Enter Password" required>
+                </div>
+                <div class="group-button">
+                    <input type="submit" value="Login" class="submit">
+                </div>
+            </form>
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+
+    </section>
+
+</body>
+</html>
