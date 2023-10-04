@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+:root{
+    --primary:           #007bff;
+    --secondary:         #00cccc;
+    --on-primary:        #ffffff;
+    --on-secondary:      #151515;
+    --background:        #090909;
+    --background-variant:#151515;
+    --surface:           #dddddd;
+    --text-color:        #000000;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+/* ----- Navigation Bar ----- */
+.navigation{
+    display: flex;
+    float: left;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 4em;
+    background-color: var(--background-variant);
+    color: var(--on-primary);
+}
+.navigation h2{
+    padding: 5px 10px;
+    margin:  5px 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.navigation h2 a{
+    text-decoration: none;
+    color: var(--on-primary);
+    transition: 0.5s;
+}
+.navigation h2 a::after{
+    content: '';
+    display: block;
+    margin: 3px auto;
+    width: 0%;
+    height: 1px;
+    background: var(--primary);
+    transition: 0.5s;
+}
+.navigation h2 a:hover::after{
+    width: 100%;
+}
+.navigation ul{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+    padding: 20px;
+}
+.navigation ul a{
+    display: inline-block;
+    position: relative;
+    color: var(--on-primary);
+    text-decoration: none;
+    list-style: none;
+    letter-spacing: 1px;
+}
+.navigation ul a::after{
+    content: '';
+    display: block;
+    margin: 3px auto;
+    width: 0%;
+    height: 1px;
+    background: var(--primary);
+    transition: 1s;
+}
+.navigation a:hover::after{
+    width: 100%;
+}
+.navigation i{
+    padding: 0 3px;
+}

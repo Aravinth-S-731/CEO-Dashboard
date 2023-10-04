@@ -34,9 +34,6 @@ body{
     /* background-color: var(--background-variant); */
     color: var(--on-primary);
 }
-.navigation div{
-    /* flex: 1; */
-}
 .navigation h2{
     padding: 10px;
     margin: 10px;
@@ -93,8 +90,8 @@ body{
     display: none;
 }
 
-/* ----- Login Section ----- */
-.login-section{
+/* ----- register Section ----- */
+.register-section{
     position: absolute;
     top: 55%;
     left: 50%;
@@ -107,21 +104,21 @@ body{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 9px, rgba(0, 0, 0, 1) 0px 10px 10px -6px, rgba(0, 0, 0, 1) 0px -6px 0px inset;
 }
-.login-container h1{
+.register-container h1{
     font-size: 32px;
     color: var(--primary);
     text-transform: uppercase;
 }
-.login-container .group{
+.register-container .group{
     display: flex;
     flex-direction: column;
     align-items: start;
     margin: 20px 0;
 }
-.login-container .group label{
+.register-container .group label{
     margin: 5px;
 }
-.login-container .group input{
+.register-container .group input{
     width: 100%;
     padding: 5px;
     color: var(--on-primary);
@@ -130,7 +127,7 @@ body{
     border-radius: 5px;
     margin: 5px 0;
 }
-.login-container .group-button{
+.register-container .group-button{
     text-align: center;
 }
 .submit{
@@ -152,15 +149,15 @@ body{
     color: var(--primary);
     transition: 0.5s;
 }
-.login-container p{
+.register-container p{
     margin-top: 20px;
 }
-.login-container p a{
+.register-container p a{
     text-decoration: none;
     color: var(--secondary);
     transition: 0.5s;
 }
-.login-container p a:hover{
+.register-container p a:hover{
     text-decoration: underline;
 }
 
@@ -204,22 +201,22 @@ body{
         margin: 10px 20px;
     }
 
-    .login-section{
+    .register-section{
         padding: 10px 10px;
         width: 300px;
     }
-    .login-container h1{
+    .register-container h1{
         font-size: 26px;
     }
-    .login-container .group label{
+    .register-container .group label{
         font-size: 14px;
     }
-    .login-container .group input{
+    .register-container .group input{
         width: 90%;
         padding: 5px;
         font-size: 12px;
     }
-    .login-container p{
+    .register-container p{
         font-size: 13px;
         margin: 20px 0;
     }
@@ -227,7 +224,8 @@ body{
 
 @media (max-width: 425px) {
     .navigation h2{
-        font-size: 22px;
+        font-size: 20px;
+        letter-spacing: 0;
     }
     .navigation ul a{
         display: block;
@@ -248,7 +246,7 @@ body{
     .navigation .fa{
         display: block;
         color: var(--on-primary);
-        margin: 10px 30px;
+        margin: 5px 30px;
         font-size: 22px;
         cursor: pointer;
     }
@@ -264,22 +262,22 @@ body{
         margin: 10px 20px;
     }
 
-    .login-section{
+    .register-section{
         padding: 10px 10px;
         width: 200px;
     }
-    .login-container h1{
+    .register-container h1{
         font-size: 26px;
     }
-    .login-container .group label{
+    .register-container .group label{
         font-size: 14px;
     }
-    .login-container .group input{
+    .register-container .group input{
         width: 90%;
         padding: 5px;
         font-size: 12px;
     }
-    .login-container p{
+    .register-container p{
         font-size: 13px;
         margin: 20px 0;
     }
