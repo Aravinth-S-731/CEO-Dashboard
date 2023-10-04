@@ -1,10 +1,10 @@
 ## This is Workflow schedule for completion of project.
 
-- [ ] Day - 1 [04/10/2023]
+- [x] Day - 1 [04/10/2023]
     #### User Authentication adn Authorization.
   - [x] Morning - Database Schema for User Authorization.
   - [x] Afternoon = Setup Flask Environment and configure database with Flask application.
-  - [ ] Developing user Registration and login functionalities.
+  - [x] Developing user Registration and login functionalities.
 
 - [ ] Day - 2 [05/10/2023]
     #### User Authentication adn Authorization. (Continue...)
