@@ -12,10 +12,36 @@
 <body>
 
     <!-- Navigation Bar -->
-    
+    <nav>
+        
+        <div class="navLinks" id="navLinks">
+            <i class="fa-solid fa-times times-icon" onclick="closeDashboardNav()"></i>
+            <ul>
+                <h3>Hi, Welcome {{username}}!</h3>
+                <a href="#">
+                    <li>Link 1</li>
+                </a>
+                <a href="#">
+                    <li>Link 1</li>
+                </a>
+                <a href="#">
+                    <li>Link 1</li>
+                </a>
+                <a href="#">
+                    <li>Link 1</li>
+                </a>
+                <a href="#">
+                    <li>Link 1</li>
+                </a>
+                <a href="{{url_for('logout')}}">
+                    <li><i class="fa-solid fa-right-from-bracket" ></i>Log out</li>
+                </a>
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="openDashboardNav()"></i>
+    </nav>
 
-    <h2>Home Page</h2>
-    <p>Welcome back, {{ username }}!</p>
 
+    <script src="/static/javascript/App.js"></script>
 </body>
 </html>

@@ -5,6 +5,12 @@ function showMenu(){
 function hideMenu(){
     navLinks.style.top = "-200px";
 }
+function openDashboardNav(){
+    navLinks.style.left = "0";
+}
+function closeDashboardNav(){
+    navLinks.style.left = "-200px";
+}
 
 window.addEventListener("load",function() {
     setTimeout(

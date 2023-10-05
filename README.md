@@ -15,7 +15,9 @@ The Calculations are done for 6 weeks / 1.5 months
 ```
 ### Navigation Links
 #### Financial Metrics
-1. Revenue [Weekly]
-2. Profit Margin [Weekly]
-3. Cash Flow [Weekly]
-4. Return on Investment [Monthly]
+1. Revenue Tracking [Weekly revenue] line chart
+2. Profitable ratios {3 - div}
+   1. Gross Profit Margin
+   2. Net profit margin
+   3. ROI
+3. Budgeted Revenue
