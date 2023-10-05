@@ -8,3 +8,14 @@ This Web application is to create a CEO dashboard that will provide a comprehens
 #### 4. Sales and Marketing Module.
 #### 5. Operational Metrics Module.
 #### 6. Collaboration and Communication Module.
+
+## Dashboard Overview
+```
+The Calculations are done for 6 weeks / 1.5 months
+```
+### Navigation Links
+#### Financial Metrics
+1. Revenue [Weekly]
+2. Profit Margin [Weekly]
+3. Cash Flow [Weekly]
+4. Return on Investment [Monthly]

@@ -8,7 +8,7 @@
 
 - [ ] Day - 2 [05/10/2023]
     #### User Authentication adn Authorization. (Continue...)
-  - [ ] Morning - Continue Working on user registration and login.
+  - [x] Morning - Continue Working on user registration and login.
   - [ ] Afternoon - Implement user role and permissions.
   - [ ] Evening - Test and Debug login the functionality
 

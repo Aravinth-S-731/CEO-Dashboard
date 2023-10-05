@@ -13,7 +13,9 @@
 
     <!-- Navigation Bar -->
     <nav class="navigation">
-        <h2 class="brand-text"><a href="{{ url_for('login')}}">CEO-Dashboard</a></h2>
+        <h2 class="brand-text">
+            <a href="{{ url_for('login')}}">CEO-Dashboard</a>
+        </h2>
         <div id="navLinks">
             <i class="fa fa-times"  onclick="hideMenu()"></i>
             <ul>
@@ -28,8 +30,19 @@
         <i class="fa fa-bars" onclick="showMenu()"></i>
     </nav>
 
+    <!-- Pop Up for Login Details -->
+    <div class="popup">
+        <h3>Important Notice</h3>
+        <p>To login, please use the below provided credentials or create a <a href="{{ url_for('register')}}">New Account</a>.</p>
+        <div class="popup-detail">
+            <p class="popup-head">Username: <span class="popup-ans">Admin</span></p>
+            <p class="popup-head">Password: <span class="popup-ans">@Aravinth</span></p>
+        </div>
+        <button id="closePopup">I Understand</button>
+    </div>
+
     <!-- Login Page -->
-    <section class="login-section">
+    <section class="login-section" id="login-section">
 
         <div class="login-container">
             <h1>Login</h1>
