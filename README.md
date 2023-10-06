@@ -15,9 +15,6 @@ The Calculations are done for 6 weeks / 1.5 months
 ```
 ### Navigation Links
 #### Financial Metrics
-1. Revenue Tracking [Weekly revenue] line chart
-2. Profitable ratios {3 - div}
-   1. Gross Profit Margin
-   2. Net profit margin
-   3. ROI
-3. Budgeted Revenue
+1. Revenue Tracking [daily revenue] line chart
+   - The amount of money that comes in every year
+2. Expense [Weekly expense] 
