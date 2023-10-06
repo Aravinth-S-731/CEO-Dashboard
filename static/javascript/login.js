@@ -1,15 +1,11 @@
 var navLinks = document.getElementById("navLinks");
+let login_section = document.getElementById("login-section");
+
 function showMenu(){
     navLinks.style.top = "0";
 }
 function hideMenu(){
     navLinks.style.top = "-200px";
-}
-function openDashboardNav(){
-    navLinks.style.left = "0";
-}
-function closeDashboardNav(){
-    navLinks.style.left = "-200px";
 }
 
 window.addEventListener("load",function() {
@@ -24,6 +20,3 @@ document.querySelector("#closePopup").addEventListener("click", function(){
     document.querySelector(".popup").style.display = "none";
     login_section.style.filter = "none";
 });
-
-
-let login_section = document.getElementById("login-section");

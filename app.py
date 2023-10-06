@@ -87,7 +87,24 @@ def register():
 @app.route('/home/landing-page')
 def landingPage():
     if 'loggedin' in session:
-        return render_template('landing_page.html', username = session['username'])
+        revenue_data = [
+            ('week-1',20),
+            ('week-2',40),
+            ('week-3',30),
+            ('week-4',50)
+        ]
+        label = [row[0] for row in revenue_data]
+        value = [row[1] for row in revenue_data]
+
+
+
+
+        return render_template('landing_page.html',
+                               username = session['username'],
+                               labels = label,
+                               values = value)
+
+
     return redirect(url_for('login'))
 
 if __name__ == "__main__":

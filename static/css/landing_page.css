@@ -8,7 +8,7 @@
     --secondary:         #00cccc;
     --on-primary:        #ffffff;
     --on-secondary:      #151515;
-    --background:        #090909;
+    --background:        #ffffff;
     --background-variant:#151515;
     --surface:           #dddddd;
     --text-color:        #000000;
@@ -33,11 +33,13 @@ body{
 }
 .navLinks .times-icon{
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 0.5em;
+    right: 0.5em;
+    z-index: 2;
+    color: var(--on-primary);
 }
 .navLinks ul{
-    margin: 40px;
+    margin: 60px 40px;
 }
 .navLinks h3{
     color: var(--on-primary);
@@ -52,16 +54,58 @@ body{
     list-style: none;
     margin: 30px 0;
 }
-nav .fa-solid{
+nav .menu-icon{
     margin: 20px;
     cursor: pointer;
-    color: var(--on-primary);
+    color: var(--primary);
 }
 nav i{
     margin: 0 5px 0 0;
 }
 
+/* ----- Dashboard HOME ----- */
+.revenue{
+    grid-area: revenue;
+}
+.balance{
+    grid-area: balance;
+    
+    padding: 100px;
+}
+.expense{
+    grid-area: expense;
+    padding: 100px;
+}
+.daily-sales{
+    grid-area: dailySales;
+    padding: 100px;
+}
+.dashboard-home{
+    display: grid;
+    grid-template-areas:
+    'revenue revenue revenue revenue balance balance'
+    'expense expense dailySales dailySales balance balance';
+    margin: 0 1em;
+    gap: 1em;
+    width: 97.5vw;
+    height: 80vh;
+}
+.dashboard-home div {
+    background-color: rgba(71, 71, 71, 0.5);
+    text-align: center;
+    border-radius: 10px;
+}
 
+@media (max-width: 770px) {
+    .dashboard-home{
+        width: 90vw;
+        grid-template-areas:
+        'revenue'
+        'balance'
+        'expense'
+        'dailySales';
+    }
+}
 /* ----- Welcome ----- */
 /* .welcome-text{
     color: var(--on-primary);

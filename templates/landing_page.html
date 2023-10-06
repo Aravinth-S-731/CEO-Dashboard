@@ -6,6 +6,9 @@
     <title>CEO - Login</title>
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_page.css') }}">
+    <!-- ChartJS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -13,39 +16,41 @@
 
     <!-- Navigation Bar -->
     <nav>
-        
         <div class="navLinks" id="navLinks">
-            <i class="fa-solid fa-times times-icon" onclick="closeDashboardNav()"></i>
+            <i class="fa-solid fa-times times-icon menu-icon" onclick="closeDashboardNav()"></i>
             <ul>
                 <h3>Hi, Welcome {{username}}!</h3>
                 <a href="#">
-                    <li>Link 1</li>
+                    <li><i class="fa-solid fa-chart-pie" ></i>Home</li>
                 </a>
                 <a href="#">
-                    <li>Link 1</li>
+                    <li><i class="fa-solid fa-coins" ></i>Finance</li>
                 </a>
                 <a href="#">
-                    <li>Link 1</li>
+                    <li><i class="fa-solid fa-bullhorn" ></i>Marketing</li>
                 </a>
                 <a href="#">
-                    <li>Link 1</li>
+                    <li><i class="fa-solid fa-user-tie" ></i>Operational</li>
                 </a>
                 <a href="#">
-                    <li>Link 1</li>
+                    <li><i class="fa-solid fa-list-check" ></i>Kanban</li>
+                </a>
+                <a href="#">
+                    <li><i class="fa-solid fa-comments" ></i>Chat</li>
                 </a>
                 <a href="{{url_for('logout')}}">
                     <li><i class="fa-solid fa-right-from-bracket" ></i>Log out</li>
                 </a>
             </ul>
         </div>
-        <i class="fa-solid fa-bars" onclick="openDashboardNav()"></i>
+        <i class="fa-solid fa-bars menu-icon" onclick="openDashboardNav()"></i>
     </nav>
 
 
     <section class="dashboard-home">
         <!-- Revenue -->
         <div class="revenue" id="revenue">
-            Revenue
+            <canvas id="revenue-chart" ></canvas>
         </div>
         <!-- Balance -->
         <div class="balance" id="balance">
@@ -53,7 +58,7 @@
         </div>
         <!-- Expense -->
         <div class="expense" id="expense">
-            Expense
+            <canvas id="pie-chart"></canvas>
         </div>
         <!-- Daily Sales -->
         <div class="daily-sales" id="daily-sales">
@@ -62,6 +67,10 @@
     </section>
 
 
-    <script src="/static/javascript/App.js"></script>
+    <script>
+        const labels = {{labels | tojson}};
+        const values = {{values | tojson}};
+    </script>
+    <script src="/static/javascript/dashboard.js"></script>
 </body>
 </html>

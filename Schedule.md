@@ -6,16 +6,16 @@
   - [x] Afternoon = Setup Flask Environment and configure database with Flask application.
   - [x] Developing user Registration and login functionalities.
 
-- [ ] Day - 2 [05/10/2023]
+- [x] Day - 2 [05/10/2023]
     #### User Authentication adn Authorization. (Continue...)
   - [x] Morning - Continue Working on user registration and login.
-  - [ ] Afternoon - Implement user role and permissions.
-  - [ ] Evening - Test and Debug login the functionality
+  - [x] Afternoon - Implement user role and permissions.
+  - [x] Evening - Test and Debug login the functionality
 
 - [ ] Day - 3 [06/10/2023]
     #### Dashboard Overview
-  - [ ] Morning - Design layout and structure for dashboard overview page.
-  - [ ] Afternoon - Retrieve and display the sample data.
+  - [x] Morning - Design layout and structure for dashboard overview page.
+  - [x] Afternoon - Retrieve and display the sample data.
   - [ ] Evening - Begin implementation of basic data visualization.
 
 - [ ] Day - 4 [07/10/2023]
