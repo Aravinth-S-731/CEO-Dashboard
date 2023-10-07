@@ -7,9 +7,11 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_page.css') }}">
     <!-- ChartJS -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Font Awesome Icons -->
+    <!-- Chartist -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -49,27 +51,29 @@
 
     <section class="dashboard-home">
         <!-- Revenue -->
-        <div class="revenue" id="revenue">
-            <canvas id="revenue-chart" ></canvas>
+        <div class="revenue chart-container" id="revenue">
+            <h3 class="chart-head">Revenue Per Month</h3>
+            <div class="ct-chart" id="chart-line"></div>
         </div>
         <!-- Balance -->
-        <div class="balance" id="balance">
+        <div class="balance chart-container" id="balance">
             Balance
         </div>
         <!-- Expense -->
-        <div class="expense" id="expense">
-            <canvas id="pie-chart"></canvas>
+        <div class="expense chart-container" id="expense">
+            <!-- <div class="ct-chart" id="chart-pie"></div> -->
+            {{revenue}}
         </div>
         <!-- Daily Sales -->
-        <div class="daily-sales" id="daily-sales">
+        <div class="daily-sales chart-container" id="daily-sales">
             Daily Sales per Region
         </div>
     </section>
 
 
     <script>
-        const labels = {{labels | tojson}};
-        const values = {{values | tojson}};
+        const month= {{month | tojson}}
+        const revenue= {{revenue | tojson}}
     </script>
     <script src="/static/javascript/dashboard.js"></script>
 </body>

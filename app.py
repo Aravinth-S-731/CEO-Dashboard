@@ -2,6 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="@Arvi7777",
+    database="ceo-revenue"
+)
 
 app = Flask(__name__)
 
@@ -87,22 +95,37 @@ def register():
 @app.route('/home/landing-page')
 def landingPage():
     if 'loggedin' in session:
-        revenue_data = [
-            ('week-1',20),
-            ('week-2',40),
-            ('week-3',30),
-            ('week-4',50)
-        ]
-        label = [row[0] for row in revenue_data]
-        value = [row[1] for row in revenue_data]
+        cursor = mydb.cursor()
+        months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+        # Initialize the total revenue for each month
+        total_revenue = {}
+        for table in months:
+            total_revenue[table] = 0
+        # Iterate over the months and get the sum of revenue for each month
+        for table in months:
+            sql = f"""
+            SELECT SUM(revenue) AS revenue, SUM(profit) AS profit, SUM(expense) AS expense
+            FROM  {table}
+            """
+            cursor.execute(sql)
+            result = cursor.fetchone()
+
+            total_revenue[table] = result
+            month, revenue, expense, profit = [] , [] , [] , []
+        # Print the total revenue for each month
+        for mon, total_revenue in total_revenue.items():
+            month.append(mon)
+            revenue.append(f'{total_revenue[0]}')
+            expense.append(f'{total_revenue[1]}')
+            profit.append(f'{total_revenue[2]}')
 
 
-
-
+        # Close the cursor and database connection
+        cursor.close()
         return render_template('landing_page.html',
                                username = session['username'],
-                               labels = label,
-                               values = value)
+                               month = month,
+                               revenue = revenue)
 
 
     return redirect(url_for('login'))
