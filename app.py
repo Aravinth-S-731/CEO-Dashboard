@@ -35,7 +35,7 @@ def login():
         password = hash.hexdigest()
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM `ceo_login_database` WHERE username = %s AND password = %s', (username, password,))
-        # Fetch one record and return the result
+        # Fetch one record and return the revenue_result
         ceo_login_database = cursor.fetchone()
         print(ceo_login_database)
         # If account exists in accounts table in out database
@@ -98,37 +98,60 @@ def landingPage():
         cursor = mydb.cursor()
         months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
         # Initialize the total revenue for each month
-        total_revenue = {}
+        total_revenue, payment_type, payment_mode = {} , [] , [0,0,0]
+        credit_card_purchase = debit_card_purchase = upi_purchase = 0
         for table in months:
             total_revenue[table] = 0
         # Iterate over the months and get the sum of revenue for each month
         for table in months:
-            sql = f"""
+            sql_revenue = f"""
             SELECT SUM(revenue) AS revenue, SUM(profit) AS profit, SUM(expense) AS expense
             FROM  {table}
             """
-            cursor.execute(sql)
-            result = cursor.fetchone()
+            cursor.execute(sql_revenue)
+            revenue_result = cursor.fetchone()
 
-            total_revenue[table] = result
+            payment_type_sql = f"""
+            SELECT '{table}' AS Month, 'Credit card' AS Payment_Type, COUNT(*) AS Occurrences FROM `ceo-revenue`.{table} WHERE payment_type = 'Credit card'
+            UNION ALL
+            SELECT '{table}' AS Month, 'Debit card' AS Payment_Type, COUNT(*) AS Occurrences FROM `ceo-revenue`.{table} WHERE payment_type = 'Debit card'
+            UNION ALL
+            SELECT '{table}' AS Month, 'UPI' AS Payment_Type, COUNT(*) AS Occurrences FROM `ceo-revenue`.{table} WHERE payment_type = 'UPI'
+            ORDER BY Month, Payment_Type;
+            """
+            cursor.execute(payment_type_sql)
+            payment_type_result = cursor.fetchall()
+
+            payment_type.append(payment_type_result)
+            total_revenue[table] = revenue_result
             month, revenue, expense, profit = [] , [] , [] , []
+
         # Print the total revenue for each month
         for mon, total_revenue in total_revenue.items():
             month.append(mon)
             revenue.append(f'{total_revenue[0]}')
             expense.append(f'{total_revenue[1]}')
             profit.append(f'{total_revenue[2]}')
-
+        # Counting the Number of Credit, debit and UPI users
+        for i in payment_type:
+            for j in i:
+                if j[1] == "Credit card":
+                    payment_mode[0] += j[2]
+                if j[1] == "Debit card":
+                    payment_mode[1] += j[2]
+                if j[1] == "UPI":
+                    payment_mode[2] += j[2]
 
         # Close the cursor and database connection
         cursor.close()
         return render_template('landing_page.html',
-                               username = session['username'],
-                               month = month,
-                               revenue = revenue)
+                                username = session['username'],
+                                month = month,
+                                revenue = revenue,
+                                payment_mode = payment_mode)
 
 
     return redirect(url_for('login'))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    [app.run(host="0.0.0.0", port=5000, debug=True)]

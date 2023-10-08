@@ -15,12 +15,13 @@ var revenue_data = {
     series: [revenue]
 };
 
-var expense_data = {
-    series: [revenue]
+var payment_mode_data = {
+    labels: ["Credit card", "Debit card", "UPI"],
+    series: [payment_mode[0],payment_mode[1],payment_mode[2]]
 }
 
 
-var options = {
+var revenue_options = {
     onlyInteger: true,
     // width: 500,
     // height: 400,
@@ -38,7 +39,15 @@ var options = {
     }
 };
 
-var responsiveOptions  = [
+var payment_mode_options = {
+    
+    labelOffset: 0,
+    labelInterpolationFnc: function(value) {
+            return value;
+        }
+};
+
+var revenue_responsiveOptions  = [
     ['screen and (min-width:770px) and (max-width: 1025px)',{
         axisX: {
             labelInterpolationFnc: function(value) {
@@ -61,17 +70,10 @@ var responsiveOptions  = [
         }
     }]
 ]
-
+console.log(payment_mode[0]);
 // Create a new line chart object where as first parameter we pass in a selector
 // that is resolving to our chart container element. The Second parameter
 // is the actual data object.
 // new Chartist.Line('#chartLine', data,options);
-new Chartist.Line('#chart-line', revenue_data, options, responsiveOptions);
-// new Chartist.Pie('#chart-pie', data)
-new Chartist.Pie('#chart-pie', {
-    series: [revenue[0],revenue[1],revenue[2],revenue[3]]
-} ,{
-    chartPadding: 30,
-    labelOffset: 50,
-    labelDirection: 'explode'
-  });
+new Chartist.Line('#chart-line', revenue_data, revenue_options, revenue_responsiveOptions);
+new Chartist.Pie('#chart-pie', payment_mode_data, payment_mode_options);

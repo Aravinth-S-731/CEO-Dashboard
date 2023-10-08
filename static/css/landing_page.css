@@ -6,6 +6,7 @@
 :root{
     --primary:           #45ADFF;
     --secondary:         #00cccc;
+    --secondary-variant: #8289e8;
     --on-primary:        #ffffff;
     --on-secondary:      #151515;
     --background:        #ffffff;
@@ -72,8 +73,8 @@ nav i{
 .balance{
     grid-area: balance;
 }
-.expense{
-    grid-area: expense;
+.payment-mode{
+    grid-area: payment-mode;
 }
 .daily-sales{
     grid-area: dailySales;
@@ -82,7 +83,7 @@ nav i{
     display: grid;
     grid-template-areas:
     'revenue revenue revenue revenue balance balance'
-    'expense expense dailySales dailySales balance balance';
+    'payment-mode payment-mode dailySales dailySales balance balance';
     gap: 1.5em;
     width: 97.5vw;
     height: 80vh;
@@ -110,7 +111,7 @@ nav i{
         grid-template-areas:
         'revenue'
         'balance'
-        'expense'
+        'payment-mode'
         'dailySales';
         margin: 0 1.2em;
     }
@@ -120,15 +121,29 @@ nav i{
     color: var(--on-primary);
 } */
 /* Chart */
-.ct-chart{
+.revenue .ct-chart{
     margin: 0 0 0 2em;
 }
-.ct-chart .ct-series-a .ct-line{
-    stroke: #45ADFF;
+.revenue .ct-chart .ct-series-a .ct-line{
+    stroke: var(--primary);
 }
-.ct-chart .ct-series-a .ct-point{
-    stroke: #45ADFF;
+.revenue .ct-chart .ct-series-a .ct-point{
+    stroke: var(--primary);
 }
-.ct-chart .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
-    fill: #45ADFF;
+.revenue .ct-chart .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
+    fill: var(--primary);
+}
+
+.payment-mode .ct-chart .ct-label{
+    fill: var(--text-color);
+    font-size: 12px;
+}
+.payment-mode .ct-chart .ct-series-a .ct-slice-pie{
+    fill: var(--primary);
+}
+.payment-mode .ct-chart .ct-series-b .ct-slice-pie{
+    fill: var(--secondary);
+}
+.payment-mode .ct-chart .ct-series-c .ct-slice-pie{
+    fill: var(--secondary-variant);
 }

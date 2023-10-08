@@ -60,13 +60,13 @@
             Balance
         </div>
         <!-- Expense -->
-        <div class="expense chart-container" id="expense">
-            <!-- <div class="ct-chart" id="chart-pie"></div> -->
-            {{revenue}}
+        <div class="payment-mode chart-container" id="payment">
+            <h3 class="chart-head">Payment Mode</h3>
+            <div class="ct-chart" id="chart-pie"></div>
         </div>
         <!-- Daily Sales -->
         <div class="daily-sales chart-container" id="daily-sales">
-            Daily Sales per Region
+            <h3 class="chart-head">Profit Earned</h3>
         </div>
     </section>
 
@@ -74,6 +74,7 @@
     <script>
         const month= {{month | tojson}}
         const revenue= {{revenue | tojson}}
+        const payment_mode = {{payment_mode | tojson}}
     </script>
     <script src="/static/javascript/dashboard.js"></script>
 </body>
