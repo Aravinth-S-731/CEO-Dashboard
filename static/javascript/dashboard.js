@@ -8,72 +8,62 @@ function closeDashboardNav(){
 }
 
 
-var revenue_data = {
-    // A labels array that can contain any sort of values
-    labels:  month,
-    // Our series array that contains series objects or in this case series data arrays
-    series: [revenue]
-};
+const revenue_xValues = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
 
-var payment_mode_data = {
-    labels: ["Credit card", "Debit card", "UPI"],
-    series: [payment_mode[0],payment_mode[1],payment_mode[2]]
-}
-
-
-var revenue_options = {
-    onlyInteger: true,
-    // width: 500,
-    // height: 400,
-    showArea: true,
-    lineSmooth: true,
-    axisX: {
-        showGrid: false
-    },
-    axisY: {
-        // offset: 50,
-        showGrid: false,
-        labelInterpolationFnc: function(value) {
-            return '₹' + value ;
-        }
+new Chart("revenue-line-chart", {
+    type: "line",
+    data: {
+        labels: revenue_xValues,
+        datasets: [{
+            label: "Revenue Generated",
+            fill: true,
+            hoverBackgroundColor: "#555",
+            lineTension: 0,
+            backgroundColor: "#8289e850",
+            borderColor: "#45ADFF",
+            data: revenue
+        }]
+        },
+        options: {
+            maintainAspectRatio: true,
+            aspectRatio: 3,
+            responsive: true,
+            legend: {display: true},
+            scales: {
+            yAxes: [{ticks: {min: 6, max:16}}],
+            }
     }
-};
+});
 
-var payment_mode_options = {
-    
-    labelOffset: 0,
-    labelInterpolationFnc: function(value) {
-            return value;
-        }
-};
+new Chart("payment-pie-chart", {
+    type: 'pie',
+        data: {
+            labels: ["Credit", "Debit", "UPI"],
+            datasets: [{
+                data: payment_mode,
+                backgroundColor: ['#45ADFF', '#00cccc', '#8289e8'],
+                hoverOffset: 5
+            }],
+        },
+        options: {
+            maintainAspectRatio: true,
+            aspectRatio: 2.5,
+            responsive: true,
+        },
+})
 
-var revenue_responsiveOptions  = [
-    ['screen and (min-width:770px) and (max-width: 1025px)',{
-        axisX: {
-            labelInterpolationFnc: function(value) {
-                return value.slice(0,5);
-            }
-        }
-    }],
-    ['screen and (min-width: 485px) and (max-width: 770px)',{
-        axisX: {
-            labelInterpolationFnc: function(value) {
-                return value.slice(0,3);
-            }
-        }
-    }],
-    ['screen and (max-width: 485px)', {
-        axisX: {
-            labelInterpolationFnc: function(value) {
-                return value[0];
-            }
-        }
-    }]
-]
-console.log(payment_mode[0]);
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object.
-// new Chartist.Line('#chartLine', data,options);
-new Chartist.Line('#chart-line', revenue_data, revenue_options, revenue_responsiveOptions);
-new Chartist.Pie('#chart-pie', payment_mode_data, payment_mode_options);
+new Chart("profit-bar-chart", {
+    type: 'bar',
+    data: {
+        labels: revenue_xValues,
+        datasets: [{
+            label: "profit",
+            data: profit,
+        }]
+    },
+    options: {
+        maintainAspectRatio: true,
+        aspectRatio: 2,
+        responsive: true
+    }
+})

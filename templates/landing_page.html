@@ -50,32 +50,43 @@
 
 
     <section class="dashboard-home">
-        <!-- Revenue -->
-        <div class="revenue chart-container" id="revenue">
-            <h3 class="chart-head">Revenue Per Month</h3>
-            <div class="ct-chart" id="chart-line"></div>
-        </div>
-        <!-- Balance -->
-        <div class="balance chart-container" id="balance">
-            Balance
-        </div>
-        <!-- Expense -->
-        <div class="payment-mode chart-container" id="payment">
-            <h3 class="chart-head">Payment Mode</h3>
-            <div class="ct-chart" id="chart-pie"></div>
-        </div>
-        <!-- Daily Sales -->
-        <div class="daily-sales chart-container" id="daily-sales">
-            <h3 class="chart-head">Profit Earned</h3>
-        </div>
+        <section class="dashboard-content">
+            <!-- Live Data Change -->
+            <div class="responsive-data grid">
+                <!-- Revenue -->
+                <div class="revenue-line-chart" id="revenue">
+                    <h3 class="chart-head">Revenue Per Month</h3>
+                    <canvas id="revenue-line-chart"></canvas>
+                </div>
+                <!-- Payment mode / Profit-->
+                <div class="sub-grid">
+                    <div class="payment-pie-chart" id="payment">
+                        <h3 class="chart-head">Payment Mode</h3>
+                        <canvas id="payment-pie-chart"></canvas>
+                    </div>
+                    <div class="profit-bar-chart" id="profit-chart">
+                        <h3 class="chart-head">Profit Earned</h3>
+                        <canvas id="profit-bar-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BALANCE GRID -->
+            <div class="accounts-data grid">
+
+            </div>
+        </section>
+
     </section>
 
 
     <script>
-        const month= {{month | tojson}}
-        const revenue= {{revenue | tojson}}
+        const month = {{month | tojson}}
+        const revenue = {{revenue | tojson}}
+        const profit = {{profit | tojson}}
         const payment_mode = {{payment_mode | tojson}}
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/static/javascript/dashboard.js"></script>
 </body>
 </html>

@@ -22,6 +22,10 @@ body{
 }
 
 /* ----- Navigation Bar ----- */
+nav{
+    position: absolute;
+    z-index: 5;
+}
 .navLinks{
     position: fixed;
     background-color: var(--primary);
@@ -29,7 +33,7 @@ body{
     width: 200px;
     text-align: left;
     top: 0;
-    left: -200px;
+    left: 0px;
     border-radius: 0 25px 25px 0;
     z-index: 5;
     transition: 1s;
@@ -53,9 +57,18 @@ body{
     text-decoration: none;
     color: var(--on-primary);
 }
+
 .navLinks ul a li{
     list-style: none;
-    margin: 30px 0;
+    margin: 20px 0;
+    padding: 10px 8px;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+.navLinks ul a li:hover{
+    background-color: #ffffff;
+    color: var(--primary);
+    transition: 0.4s;
 }
 nav .menu-icon{
     margin: 20px;
@@ -67,83 +80,72 @@ nav i{
 }
 
 /* ----- Dashboard HOME ----- */
-.revenue{
-    grid-area: revenue;
-}
-.balance{
-    grid-area: balance;
-}
-.payment-mode{
-    grid-area: payment-mode;
-}
-.daily-sales{
-    grid-area: dailySales;
-}
 .dashboard-home{
+    height: 100%;
+    width: 100%;
+}
+.dashboard-content{
+    height: 100%;
+    width: 100%;
+    background-color: #DBDBDB;
     display: grid;
-    grid-template-areas:
-    'revenue revenue revenue revenue balance balance'
-    'payment-mode payment-mode dailySales dailySales balance balance';
-    gap: 1.5em;
-    width: 97.5vw;
-    height: 80vh;
-    margin: 0 1em;
+    grid-template-columns: 65% 35%;
+    gap: 1em;
 }
-.dashboard-home .chart-container {
-    background-color: rgba(255,255,255, 0.5);
+
+.grid{
     text-align: center;
-    border-radius: 10px;
+    margin: 40px;
+}
+.responsive-data{
+    margin-right: 0;
+    display: grid;
+    gap: 1em;
+}
+.accounts-data{
+    margin-left: 0;
+    background-color: aquamarine;
+}
+
+.responsive-data .sub-grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1em;
+}
+
+.revenue-line-chart{
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.4),
+    0px 2px 8px -3px rgba(0,0,0,0.3),
+    0px -3px 0px 0px rgba(0,0,0,0.2) inset;
     padding: 10px;
-    border-radius: 50px;
-    background: var(--background);
-    box-shadow: 0px 0px 15px -15px rgba(0,0,0,0.4),
-                0px 7px 13px -3px rgba(0,0,0,0.3),
-                0px -3px 0px 0px rgba(0,0,0,0.2) inset;
 }
-.dashboard-home .chart-head{
-    font-size: calc(.8rem + (1.2 * ((100vw - 300px)/1600)));
-    margin: 1em 0;
+.payment-pie-chart{
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.4),
+    0px 2px 8px -3px rgba(0,0,0,0.3),
+    0px -3px 0px 0px rgba(0,0,0,0.2) inset;
+    max-height: 250px;
+    padding: 10px;
+}
+.profit-bar-chart{
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.4),
+    0px 2px 8px -3px rgba(0,0,0,0.3),
+    0px -3px 0px 0px rgba(0,0,0,0.2) inset;
+    padding: 10px;
 }
 
-@media (max-width: 770px) {
-    .dashboard-home{
-        width: 90vw;
-        grid-template-areas:
-        'revenue'
-        'balance'
-        'payment-mode'
-        'dailySales';
-        margin: 0 1.2em;
+
+/* ---------- MEDIA QUERY ---------- */
+@media (max-width :770px){
+    .dashboard-content{
+        grid-template-columns: 100%;
     }
-}
-/* ----- Welcome ----- */
-/* .welcome-text{
-    color: var(--on-primary);
-} */
-/* Chart */
-.revenue .ct-chart{
-    margin: 0 0 0 2em;
-}
-.revenue .ct-chart .ct-series-a .ct-line{
-    stroke: var(--primary);
-}
-.revenue .ct-chart .ct-series-a .ct-point{
-    stroke: var(--primary);
-}
-.revenue .ct-chart .ct-series-a .ct-area, .ct-series-a .ct-slice-pie {
-    fill: var(--primary);
-}
-
-.payment-mode .ct-chart .ct-label{
-    fill: var(--text-color);
-    font-size: 12px;
-}
-.payment-mode .ct-chart .ct-series-a .ct-slice-pie{
-    fill: var(--primary);
-}
-.payment-mode .ct-chart .ct-series-b .ct-slice-pie{
-    fill: var(--secondary);
-}
-.payment-mode .ct-chart .ct-series-c .ct-slice-pie{
-    fill: var(--secondary-variant);
+    .responsive-data .sub-grid{
+        grid-template-columns: 100%;
+    }
+    .accounts-data, .responsive-data{
+        margin: 50px 20px;
+    }
 }

@@ -148,6 +148,7 @@ def landingPage():
                                 username = session['username'],
                                 month = month,
                                 revenue = revenue,
+                                profit = profit,
                                 payment_mode = payment_mode)
 
 
