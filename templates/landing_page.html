@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEO - Login</title>
+    <title>CEO - Dashboard</title>
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav_bar.css') }}">
@@ -74,7 +74,29 @@
 
             <!-- BALANCE GRID -->
             <div class="accounts-data grid">
-
+                <h3 class="chart-head">Account Balance</h3>
+                <!-- Balance Information -->
+                <div class="balance-info">
+                    <div class="balance-details">
+                        <div class="balance-numbers">
+                            <h4 class="balance-head">Balance</h4>
+                            <h2 class="balance-amount">₹ 36,06,747</h2>
+                        </div>
+                        <div class="bank-logo">
+                            <img src="{{url_for('static', filename='images/bank-logo.png')}}" alt="Bank Logo">
+                        </div>
+                    </div>
+                    <div class="account-info">
+                        <h5 class="balance-head account-info">Account Info</h5>
+                        <h4 class="account-number account-info">1561 00** **** 250</h4>
+                    </div>
+                </div>
+                <!-- Transactions History-->
+                <div class="recent-transaction" id="recent-transaction">
+                    <h4>Recent Transactions</h4>
+                    <div class="transaction-history" id="transaction-history">
+                    </div>
+                </div>
             </div>
         </section>
 

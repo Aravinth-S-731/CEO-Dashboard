@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import MySQLdb.cursors, re, hashlib
 import mysql.connector
+from datetime import timedelta
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -23,6 +24,12 @@ app.config['MYSQL_DB'] = 'ceo-application'
 
 # Initialize MySQL
 mysql = MySQL(app)
+
+# Automatic Session Time out
+@app.before_request
+def before_request():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=1)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
