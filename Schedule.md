@@ -12,17 +12,17 @@
   - [x] Afternoon - Implement user role and permissions.
   - [x] Evening - Test and Debug login the functionality
 
-- [ ] Day - 3 [06/10/2023]
+- [x] Day - 3 [06/10/2023]
     #### Dashboard Overview
   - [x] Morning - Design layout and structure for dashboard overview page.
   - [x] Afternoon - Retrieve and display the sample data.
-  - [ ] Evening - Begin implementation of basic data visualization.
+  - [x] Evening - Begin implementation of basic data visualization.
 
-- [ ] Day - 4 [07/10/2023]
+- [x] Day - 4 [07/10/2023]
     #### Dashboard Overview. (Continue...)
-  - [ ] Morning - Continue data visualization.
-  - [ ] Afternoon - Implement interactive features  on the dashboard.
-  - [ ] Evening - Test and refine the dashboard layout and interactions.
+  - [x] Morning - Continue data visualization.
+  - [x] Afternoon - Implement interactive features  on the dashboard.
+  - [x] Evening - Test and refine the dashboard layout and interactions.
 
 - [ ] Day - 5 [08/10/2023]
     #### Financial Metrics Module
