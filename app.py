@@ -8,8 +8,8 @@ from datetime import timedelta
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="@Arvi7777",
-    database="ceo-revenue"
+    password="your password",
+    database="DB name"
 )
 
 app = Flask(__name__)
@@ -19,8 +19,8 @@ app.secret_key = 'r$W9#kLp2&QnX@5*8yZ$'
 # Database connection
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '@Arvi7777'
-app.config['MYSQL_DB'] = 'ceo-application'
+app.config['MYSQL_PASSWORD'] = 'your password'
+app.config['MYSQL_DB'] = 'DB name'
 
 # Initialize MySQL
 mysql = MySQL(app)
